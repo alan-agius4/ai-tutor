@@ -6,7 +6,7 @@
   # Use https://search.nixos.org/packages to find packages
   packages = [
     pkgs.nodejs_20,
-    pkgs.pnpm_10
+    pkgs.pnpm
   ];
   # Sets environment variables in the workspace
   env = {};
@@ -29,7 +29,7 @@
       enable = true;
       previews = {
         web = {
-          command = ["pnpm" "run" "start" "--" "--port" "$PORT" "--host" "0.0.0.0"];
+          command = ["pnpm" "run" "start" "--port" "$PORT" "--host" "0.0.0.0"];
           manager = "web";
         };
       };
