@@ -18,7 +18,7 @@
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        pnpm-install = "pnpm -s install --frozen-lockfile";
+        npm-install = "pnpm -s install --frozen-lockfile";
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ "src/app/app.component.ts" ];
       };
