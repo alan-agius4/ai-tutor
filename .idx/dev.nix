@@ -5,7 +5,8 @@
   channel = "stable-24.11"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_20
+    pkgs.nodejs_20,
+    pkgs.pnpm_10
   ];
   # Sets environment variables in the workspace
   env = {};
@@ -17,7 +18,7 @@
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        npm-install = "npm ci --no-audit --prefer-offline --no-progress --timing || npm i --no-audit --no-progress --timing";
+        npm-install = "pnpm -s install --frozen-lockfile";
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ "src/app/app.component.ts" ];
       };
@@ -28,7 +29,7 @@
       enable = true;
       previews = {
         web = {
-          command = ["npm" "run" "start" "--" "--port" "$PORT" "--host" "0.0.0.0"];
+          command = ["pnpm" "run" "start" "--" "--port" "$PORT" "--host" "0.0.0.0"];
           manager = "web";
         };
       };
