@@ -2,10 +2,10 @@
 # see: https://developers.google.com/idx/guides/customize-idx-env
 { pkgs, ... }: {
   # Which nixpkgs channel to use.
-  channel = "stable-25.10"; # or "unstable"
+  channel = "stable-25.05"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_20,
+    pkgs.nodejs_20
     pkgs.pnpm
   ];
   # Sets environment variables in the workspace
@@ -18,7 +18,7 @@
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        npm-install = "pnpm -s install --frozen-lockfile";
+        pnpm-install = "pnpm -s install --frozen-lockfile";
         # Open editors for the following files by default, if they exist:
         default.openFiles = [ "src/app/app.component.ts" ];
       };
